@@ -45,14 +45,20 @@
         mayMap.on('locationfound', function (e) {
             var radius = e.accuracy / 2;
 
-            // 添加使用者位置的標記
+            // 檢查定位精度是否過低，若低於一定標準，顯示警告訊息
+            if (radius > 20) { // 這裡以100公尺為例
+                alert("定位精度過低，請檢查您的GPS訊號。");
+            }
+
+            // 添加使用者位置的標記，不添加圓形
             L.marker(e.latlng).addTo(mayMap)
                 .bindPopup("你的位置在 " + radius + " 公尺範圍內。").openPopup();
-
-            // 添加一個圓形，表示位置精確度
-            L.circle(e.latlng, radius).addTo(mayMap);
         });
 
+        // 如果出現定位錯誤，顯示提示信息
+        mayMap.on('locationerror', function (e) {
+            alert("無法取得您的位置：" + e.message);
+        });
 
     </script>
 </body>
