@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic map-leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        html,
+        body,
+        #map {
+            width: 90vw;
+            height: 90vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        // let osm = "openStreetmap"
+        // let thunLink = "thunderForest"
+        // let osmUrl = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        // let landUrl = "https://{s}.tile.thunderForest.com/transport-dark/{z}/{x}/{y}.png"
+        // let osmMap = L.tileLayer(osmUrl, { attribution: osm })
+        // let landMap = L.tileLayer(landUrl, { attribution: thunLink })
+
+        // let mayMap = L.map('map', {
+        //     layers: [osmMap]
+        // }).setView([25.036089308314548, 121.43244011519967], 18)
+
+        // let baseLayers = {
+        //     "一般的": osmMap,
+        //     "付費的": landMap
+        // }
+
+        // let groupPlaces = new L.LayerGroup()
+        // L.marker([25.036012675538036, 121.4324220715212]).addTo(groupPlaces)
+        // let overlays = {
+        //     "地點": groupPlaces
+        // }
+
+        // L.control.layers(baseLayers, overlays).addTo(mayMap)
+
+
+        let mayMap = L.map('map').setView([25.036089308314548, 121.43244011519967], 18)
+        L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(mayMap)
+
+        var bounds = [
+            [25.036089308314548, 121.43244011519967], // 西南角 (略偏南西)
+            [25.036089308314548, 121.43244011519967]  // 東北角 (略偏北東)
+        ];
+        mayMap.setMaxBounds(bounds);
+
+    </script>
+</body>
+
+</html>
