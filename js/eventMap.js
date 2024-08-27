@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 建立 marker
     const customIcon = L.icon({
-        iconUrl: 'icon/pikacu.png',
-        iconSize: [50, 50],
+        iconUrl: 'icon/pikacu.gif',
+        iconSize: [90, 65],
     });
 
     const marker = L.marker(taiwan, {
