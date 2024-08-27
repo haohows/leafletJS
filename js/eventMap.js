@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).addTo(map);
 
 
-    L.circle([25.035499271703063, 121.43153364882508], 8, {}).addTo(map)
+    L.circle([25.035499271703063, 121.43153364882508], 12, {}).addTo(map)
 
     // 建立 marker
     const customIcon = L.icon({
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 假设我们希望检测用户是否到达这个指定地点
     let targetLocation = L.latLng(25.035499271703063, 121.43153364882508); // 目標地點的經緯度
-    let targetRadius = 8; // 目標地點的半徑，單位為公尺
+    let targetRadius = 12; // 目標地點的半徑，單位為公尺
 
 
     // 跟使用者要位置
