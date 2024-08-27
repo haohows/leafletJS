@@ -33,6 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
         icon: customIcon,
     }).addTo(map);
 
+    marker.bindPopup("你已到達指定地點！");
+
+
+    // 假设我们希望检测用户是否到达这个指定地点
+    let targetLocation = L.latLng(25.03558188243541, 121.43157119439084); // 目標地點的經緯度
+    let targetRadius = 6; // 目標地點的半徑，單位為公尺
+
 
     // 跟使用者要位置
     // 參考文件：https://leafletjs.com/examples/mobile/、https://leafletjs.com/reference.html#map-locate
@@ -59,6 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
         marker.setLatLng(e.latlng); // 移動 marker
         moveTo(map); // 移動到指定座標（平滑 || 縮放 效果）
         panBy(map); // 移動 x, y 位置
+        var userLocation = e.latlng; // 使用者當前位置
+        var distance = userLocation.distanceTo(targetLocation); // 計算與目標地點的距離
+        if (distance <= targetRadius) {
+            marker.openPopup();
+        } else {
+            marker.closePopup();
+        }
     }
     map.on('locationfound', foundHandler);
 
