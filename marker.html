@@ -37,7 +37,10 @@
             }
         })
         let pikacu = new leafIcon()
-        L.marker([25.036015740850026, 121.43241417741189], { icon: pikacu }).addTo(mayMap)
+        L.marker([25.036015740850026, 121.43241417741189], { icon: pikacu }).addTo(mayMap).bindPopup("皮卡~啾~！", {
+            closeButton: false,   // 移除关闭按钮
+            closeOnClick: false   // 禁用点击地图关闭
+        }).openPopup()
         L.marker([25.036087264774476, 121.43278971146997], { icon: pikacu }).addTo(mayMap)
         L.marker([25.036446620956827, 121.4332812191222], { icon: pikacu }).addTo(mayMap)
         L.marker([25.036736731996683, 121.43212480466146], { icon: pikacu }).addTo(mayMap)

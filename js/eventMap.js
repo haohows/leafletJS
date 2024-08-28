@@ -27,13 +27,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const customIcon = L.icon({
         iconUrl: 'icon/dot.svg',
         iconSize: [35, 35],
+        popupAnchor: [0, -25],
     });
 
     const marker = L.marker(taiwan, {
         icon: customIcon,
     }).addTo(map);
 
-    marker.bindPopup("已達指定地點！");
+    marker.bindPopup("您已到達指定地點", {
+        closeButton: false,   // 移除关闭按钮
+        closeOnClick: false   // 禁用点击地图关闭
+    })
 
 
     // 假设我们希望检测用户是否到达这个指定地点
